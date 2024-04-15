@@ -7,6 +7,8 @@ function App() {
     <Routes>
       <Route path="/" element={ <Login /> } />
       <Route path="/search" element={ <Search /> } />
+      <Route path="/album/:id" />
+
       <Route path="*" element={ <h1>404 not dfound</h1> } />
     </Routes>
   );

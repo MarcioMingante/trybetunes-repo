@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import LoadingPage from './LoadingPage';
+import { handleSubmit } from '../services/handleSubmits';
 
 function Login() {
   const [login, setLogin] = useState({ name: '' });
   const [loading, setLoading] = useState(false);
+  const redirect = useNavigate();
 
   const minSize = login.name.length >= 3;
 
@@ -14,10 +17,8 @@ function Login() {
     await createUser(login);
 
     setLoading(false);
-  };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    redirect('/search');
   };
 
   return (
@@ -25,7 +26,7 @@ function Login() {
       {loading === true && (<LoadingPage />)}
 
       <div className="form-container">
-        <form action="add" onSubmit={ handleSubmit }>
+        <form action="enter" onSubmit={ handleSubmit }>
           <div>
             <label htmlFor="login">Nome de usuario</label>
             <input
