@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { handleSubmit } from '../services/handleSubmits';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import LoadingPage from './LoadingPage';
