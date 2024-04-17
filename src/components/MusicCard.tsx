@@ -13,7 +13,12 @@ function MusicCard({ musicsData: { trackName, previewUrl, trackId } }: Props) {
   const handleClick = () => {
     const current = checked;
 
-    current === true ? setChecked(false) : setChecked(true);
+    if (current === true) {
+      return setChecked(false);
+    }
+
+    return setChecked(true);
+    // current === true ? setChecked(false) : setChecked(true);
   };
 
   return (
