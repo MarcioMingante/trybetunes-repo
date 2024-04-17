@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import { UserType } from '../types';
 import LoadingPage from './LoadingPage';
 
 function Header() {
