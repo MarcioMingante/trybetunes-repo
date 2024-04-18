@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SongType } from '../types';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 type Props = {
   musicsData: SongType
@@ -9,8 +10,9 @@ type Props = {
 
 function MusicCard({ musicsData: { trackName, previewUrl, trackId } }: Props) {
   const [checked, setChecked] = useState(false);
+  const [currentSong, setCurrentSong] = useState();
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const current = checked;
 
     if (current === true) {
@@ -18,8 +20,29 @@ function MusicCard({ musicsData: { trackName, previewUrl, trackId } }: Props) {
     }
 
     return setChecked(true);
-    // current === true ? setChecked(false) : setChecked(true);
   };
+
+  useEffect(() => {
+    const handleAddSong = async () => {
+      const songObj = {
+        trackId,
+        trackName,
+        previewUrl,
+      };
+
+      if (checked === true) {
+        const result = await addSong(songObj);
+
+        return result;
+      }
+
+      const result = await removeSong(songObj);
+
+      return result;
+    };
+
+    handleAddSong();
+  }, [trackId, trackName, previewUrl, checked]);
 
   return (
     <div>

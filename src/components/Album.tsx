@@ -45,8 +45,6 @@ function Album() {
     handleAlbumsList();
   }, [albumsList]);
 
-  console.log(songsList);
-
   return (
     <>
       {loadingPage === true && <LoadingPage />}
