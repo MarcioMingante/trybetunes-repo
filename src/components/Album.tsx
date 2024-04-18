@@ -55,7 +55,10 @@ function Album() {
           <h2 data-testid="album-name">{collection}</h2>
           <div className="musics-list">
             {songsList.map((song) => (
-              <MusicCard musicsData={ song } key={ song.trackId } />
+              <MusicCard
+                musicsData={ song }
+                key={ song.trackId }
+              />
             ))}
           </div>
         </div>

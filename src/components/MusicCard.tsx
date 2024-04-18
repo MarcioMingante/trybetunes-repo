@@ -2,47 +2,56 @@ import { useEffect, useState } from 'react';
 import { SongType } from '../types';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
-import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 type Props = {
   musicsData: SongType
 };
 
-function MusicCard({ musicsData: { trackName, previewUrl, trackId } }: Props) {
+function MusicCard(
+  { musicsData: { trackName, previewUrl, trackId } }: Props,
+) {
   const [checked, setChecked] = useState(false);
-  const [currentSong, setCurrentSong] = useState();
+  const [storage, setStorage] = useState<SongType[]>([]);
 
   const handleClick = async () => {
     const current = checked;
+    const songObj = {
+      trackId,
+      trackName,
+      previewUrl,
+    };
 
     if (current === true) {
+      removeSong(songObj);
       return setChecked(false);
     }
 
-    return setChecked(true);
+    if (current === false) {
+      addSong(songObj);
+      return setChecked(true);
+    }
   };
 
   useEffect(() => {
-    const handleAddSong = async () => {
-      const songObj = {
-        trackId,
-        trackName,
-        previewUrl,
-      };
+    const handleFavoriteSongs = async () => {
+      const result = await getFavoriteSongs();
 
-      if (checked === true) {
-        const result = await addSong(songObj);
+      setStorage(result);
+    };
+    const info = storage.map((current) => current.trackName);
 
-        return result;
+    const handleChecked = () => {
+      if (info.includes(trackName)) {
+        return setChecked(true);
       }
 
-      const result = await removeSong(songObj);
-
-      return result;
+      return setChecked(false);
     };
 
-    handleAddSong();
-  }, [trackId, trackName, previewUrl, checked]);
+    handleFavoriteSongs();
+    handleChecked();
+  }, [storage]);
 
   return (
     <div>
@@ -61,8 +70,10 @@ function MusicCard({ musicsData: { trackName, previewUrl, trackId } }: Props) {
           <img src={ checked === false ? emptyHeart : checkedHeart } alt="favorite" />
         </label>
         <input
+          checked={ checked }
           onClick={ handleClick }
           type="checkbox"
+          name={ trackName }
           id={ `favorite-${trackId}` }
           alt=" favorite"
         />

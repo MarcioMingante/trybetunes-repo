@@ -23,13 +23,13 @@ function Header() {
 
   return (
     <header data-testid="header-component">
+      <NavLink to="/search" data-testid="link-to-search">Pesquisar</NavLink>
+      <NavLink to="/favorites" data-testid="link-to-favorites">Favoritos</NavLink>
+      <NavLink to="/profile" data-testid="link-to-profile">Perfil</NavLink>
       <h2 data-testid="header-user-name">
         {loadingPage === true && <LoadingPage />}
         {loadingPage === false && userName}
       </h2>
-      <NavLink to="/search" data-testid="link-to-search">Pesquisar</NavLink>
-      <NavLink to="/favorites" data-testid="link-to-favorites">Favoritos</NavLink>
-      <NavLink to="/profile" data-testid="link-to-profile">Perfil</NavLink>
     </header>
   );
 }
