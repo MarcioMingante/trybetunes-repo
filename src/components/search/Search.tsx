@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { handleSubmit } from '../services/handleSubmits';
-import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import LoadingPage from './LoadingPage';
-import { AlbumType } from '../types';
+import { handleSubmit } from '../../services/handleSubmits';
+import searchAlbumsAPI from '../../services/searchAlbumsAPI';
+import LoadingPage from '../loadingPage/LoadingPage';
+import { AlbumType } from '../../types';
 
 function Search() {
   const [loading, setLoading] = useState(false);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getUser } from '../services/userAPI';
-import LoadingPage from './LoadingPage';
+import { getUser } from '../../services/userAPI';
+import LoadingPage from '../loadingPage/LoadingPage';
 
 function Header() {
   const [userName, setUserName] = useState('');

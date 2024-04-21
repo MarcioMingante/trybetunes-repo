@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import MusicCard from './MusicCard';
-import { SongType } from '../types';
+import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
+import MusicCard from '../musicCard/MusicCard';
+import { SongType } from '../../types';
 
 function Favorites() {
   const [musics, setMusics] = useState<SongType[]>([]);

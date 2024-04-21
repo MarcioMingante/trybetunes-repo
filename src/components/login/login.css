@@ -1,0 +1,57 @@
+body {
+  background-color: rgb(114, 114, 250);
+}
+
+.form-container {
+  align-items: center;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 10%;
+  width: 55%;
+}
+
+.form-container img {
+  width: 300px;
+}
+
+.form-container form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.input-container input {
+  border-radius: 8px;
+  font-size: 20px;
+  height: 35px;
+  text-align: center;
+  width: 99%;
+}
+
+.button-container {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.button-container button {
+  background-color: rgb(61, 61, 212);
+  border-radius: 8px;
+  color: white;
+  height: 35px;
+  width: 100%;
+}
+
+.button-container button:disabled {
+  background-color: rgb(116, 116, 231);
+  color: rgb(168, 168, 168);
+}

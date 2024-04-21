@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { SongType } from '../types';
-import checkedHeart from '../images/checked_heart.png';
-import emptyHeart from '../images/empty_heart.png';
-import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import { SongType } from '../../types';
+import checkedHeart from '../../images/checked_heart.png';
+import emptyHeart from '../../images/empty_heart.png';
+import { addSong, getFavoriteSongs, removeSong } from '../../services/favoriteSongsAPI';
 
 type Props = {
   musicsData: SongType

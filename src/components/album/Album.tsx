@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import getMusics from '../services/musicsAPI';
-import LoadingPage from './LoadingPage';
-import MusicCard from './MusicCard';
-import { SongType } from '../types';
+import getMusics from '../../services/musicsAPI';
+import LoadingPage from '../loadingPage/LoadingPage';
+import MusicCard from '../musicCard/MusicCard';
+import { SongType } from '../../types';
 
 function Album() {
   const { id } = useParams();
