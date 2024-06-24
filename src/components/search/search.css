@@ -1,0 +1,81 @@
+.search-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.search-container form {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+  width: 80%;
+}
+
+.search-container input {
+  border-radius: 50px;
+  height: 35px;
+  text-align: center;
+  width: 70%;
+}
+
+.search-container button {
+  background-color: #01f2ff;
+  border-radius: 50px;
+  color: black;
+  font-weight: 700;
+  height: 35px;
+  width: 20%;
+}
+
+.search-container button:disabled {
+  background-color: gray;
+  color: white;
+}
+
+.search-title {
+  text-align: center;
+}
+
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+  width: 80%;
+}
+
+.music-album {
+  align-items: center;
+  background-color: rgb(165, 165, 255);
+  border-radius: 15px;
+  box-shadow: 5px 5px 8px rgb(32, 32, 32);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  width: 30%;
+}
+
+.music-album img {
+  border-radius: 12px;
+  width: 200px;
+}
+
+.music-album p {
+  font-size: 18px;
+}
+
+.music-album a {
+  color: black;
+  text-decoration: none;
+}
+
+.loading-containder-search {
+  display: flex;
+  justify-content: center;
+}
+
+.loading-containder-search p {
+  font-size: 150px;
+}

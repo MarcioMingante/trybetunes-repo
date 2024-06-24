@@ -1,3 +1,4 @@
+import './search.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { handleSubmit } from '../../services/handleSubmits';
@@ -32,49 +33,54 @@ function Search() {
 
   return (
     <div>
-      <form action="search" onSubmit={ handleSubmit }>
-        <div>
-          <label htmlFor="search-bar">Nome do artista ou banda</label>
+      <div className="search-container">
+        <form action="search" onSubmit={ handleSubmit }>
           <input
             data-testid="search-artist-input"
+            placeholder="Nome do artista ou banda"
             type="text"
             id="search-bar"
             onChange={ (event) => setInputInfo(event.target.value) }
             value={ inputInfo }
           />
+
+          <button
+            data-testid="search-artist-button"
+            disabled={ !minSize }
+            onClick={ handleSearch }
+          >
+            Pesquisar
+          </button>
+        </form>
+      </div>
+
+      {loading === true && (
+        <div className="loading-containder-search">
+          <LoadingPage />
         </div>
-
-        <button
-          data-testid="search-artist-button"
-          disabled={ !minSize }
-          onClick={ handleSearch }
-        >
-          Pesquisar
-        </button>
-      </form>
-
-      {loading === true && (<LoadingPage />)}
+      )}
 
       {createList === true && albumsList.length === 0 && (
-        <h1>Nenhum álbum foi encontrado</h1>
+        <h1 className="search-title">Nenhum álbum foi encontrado</h1>
       )}
 
       {createList === true && albumsList.length > 0 && (
-        <h1>{`Resultado de álbuns de: ${currentArtist}`}</h1>
+        <h1 className="search-title">{`Resultado de álbuns de ${currentArtist}`}</h1>
       )}
 
       {createList === true && albumsList.length > 0 && (
-        <ul>
+        <ul className="list-container">
           {albumsList.map((album) => (
-            <li key={ album.collectionId }>
-              {album.collectionName}
+            <div className="music-album" key={ album.collectionId }>
+              <img src={ album.artworkUrl100 } alt="" />
+              <p>{album.collectionName}</p>
               <Link
                 to={ `/album/${album.collectionId}` }
                 data-testid={ `link-to-album-${album.collectionId}` }
               >
                 Album
               </Link>
-            </li>
+            </div>
           ))}
         </ul>
       )}

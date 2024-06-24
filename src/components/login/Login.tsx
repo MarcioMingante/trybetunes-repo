@@ -55,7 +55,11 @@ function Login() {
         </div>
       )}
 
-      {loading === true && (<LoadingPage />)}
+      {loading === true && (
+        <div className="loading-containder-login">
+          <LoadingPage />
+        </div>
+      )}
     </>
   );
 }

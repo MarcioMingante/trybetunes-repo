@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(114, 114, 250);
+  background-color: rgb(70, 70, 226);
 }
 
 .form-container {
@@ -54,4 +54,15 @@ body {
 .button-container button:disabled {
   background-color: rgb(116, 116, 231);
   color: rgb(168, 168, 168);
+}
+
+.loading-containder-login {
+  color: aqua;
+  display: flex;
+  justify-content: center;
+  margin: 200px;
+}
+
+.loading-containder-login p {
+  font-size: 120px;
 }

@@ -1,0 +1,38 @@
+header {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  height: 150px;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+
+.nav-container {
+  display: flex;
+  font-size: 20px;
+  justify-content: space-around;
+  width: 30%;
+}
+
+.nav-container a {
+  color: black;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+.nav-container a:hover {
+  color: blue;
+}
+
+.nav-container div {
+  align-items: center;
+  display: flex;
+}
+
+header h2 {
+  font-size: 35px;
+}
+
+header p {
+  font-size: 25px;
+}
